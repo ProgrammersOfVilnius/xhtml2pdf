@@ -119,6 +119,12 @@ class TableData:
                 c.frag.borderBottomWidth,
                 c.frag.borderBottomColor,
                 "squared"))
+            # See https://github.com/ProgrammersOfVilnius/labtarna/pull/576
+            if mode == "table" and begin == (0, 0) and end == (-1, -1):
+                self.add_style(('LINEBELOW', (0, "splitlast"), (-1, "splitlast"),
+                    c.frag.borderBottomWidth,
+                    c.frag.borderBottomColor,
+                    "squared"))
         self.add_style(('LEFTPADDING', begin, end, c.frag.paddingLeft or self.padding))
         self.add_style(('RIGHTPADDING', begin, end, c.frag.paddingRight or self.padding))
         self.add_style(('TOPPADDING', begin, end, c.frag.paddingTop or self.padding))
